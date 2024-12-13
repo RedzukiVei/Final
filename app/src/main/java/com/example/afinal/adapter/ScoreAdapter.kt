@@ -33,8 +33,8 @@ class ScoreAdapter : ListAdapter<Score, ScoreAdapter.ScoreViewHolder>(ScoreDiffC
 
         // Método para enlazar los datos de un Score con las vistas del ítem
         fun bind(score: Score) {
-            binding.tvPlayerName.text = score.playerName    // Nombre del jugador
-            binding.tvPlayerScore.text = score.score.toString() // Puntuación del jugador
+            binding.score = score
+            binding.executePendingBindings()
         }
     }
 

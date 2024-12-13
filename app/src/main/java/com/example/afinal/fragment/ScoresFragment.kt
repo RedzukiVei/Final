@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.afinal.adapter.ScoreAdapter
 import com.example.afinal.databinding.FragmentScoresBinding
 import com.example.afinal.viewmodel.ScoresViewModel
-import com.example.afinal.adapter.ScoreAdapter
 
 
 class ScoresFragment : Fragment() {

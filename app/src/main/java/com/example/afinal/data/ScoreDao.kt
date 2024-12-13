@@ -5,19 +5,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
-// DAO para realizar operaciones en la tabla "scores"
 @Dao
+interface ScoreDao {
 
-class ScoreDao {
-    // Insertar una nueva puntuación
+    // Insertar una puntuación
     @Insert
     suspend fun insert(score: Score)
 
-    // Obtener todas las puntuaciones ordenadas por mayor puntuación
+    // Obtener todas las puntuaciones en vivo
     @Query("SELECT * FROM scores ORDER BY score DESC")
     fun getAllScoresLive(): LiveData<List<Score>>
 
     // Eliminar todas las puntuaciones
     @Query("DELETE FROM scores")
-    suspend fun deleteAll()
+    suspend fun deleteAll(): Int // Sin retorno o retorna int para filas eliminadas
 }
