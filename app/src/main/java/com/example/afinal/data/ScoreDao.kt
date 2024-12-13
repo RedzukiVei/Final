@@ -14,7 +14,7 @@ class ScoreDao {
 
     // Obtener todas las puntuaciones ordenadas por mayor puntuación
     @Query("SELECT * FROM scores ORDER BY score DESC")
-    suspend fun getAllScores(): List<Score>
+    fun getAllScoresLive(): LiveData<List<Score>>
 
     // Eliminar todas las puntuaciones
     @Query("DELETE FROM scores")
