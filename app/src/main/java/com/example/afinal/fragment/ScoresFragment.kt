@@ -16,8 +16,8 @@ class ScoresFragment : Fragment() {
 
     private var _binding: FragmentScoresBinding? = null
     private val binding get() = _binding!!
+    private val scoresViewModel: ScoresViewModel by viewModels()
 
-    private lateinit var scoresViewModel: ScoresViewModel
     private lateinit var scoreAdapter: ScoreAdapter
 
 
@@ -34,17 +34,19 @@ class ScoresFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configuración del ViewModel
-        scoresViewModel = ViewModelProvider(this)[ScoresViewModel::class.java]
-
         // Configuración del RecyclerView
         scoreAdapter = ScoreAdapter()
         binding.rvScores.layoutManager = LinearLayoutManager(requireContext())
         binding.rvScores.adapter = scoreAdapter
 
-        // Observar los datos de las puntuaciones
+        // Observar las puntuaciones y actualizar la UI
         scoresViewModel.allScores.observe(viewLifecycleOwner) { scores ->
-            scoreAdapter.submitList(scores) // Actualizamos la lista
+            scoreAdapter.submitList(scores)
+        }
+
+        // Botón para eliminar todas las puntuaciones (opcional)
+        binding.btnClearScores.setOnClickListener {
+            scoresViewModel.clearScores()
         }
     }
 
