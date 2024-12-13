@@ -12,10 +12,61 @@
         tools:layout="@layout/fragment_start">
         <action
             android:id="@+id/action_startFragment_to_gameFragment"
-            app:destination="@id/GameFragment" />
+            app:destination="@id/gameFragment" />
         <action
             android:id="@+id/action_startFragment_to_scoresFragment"
-            app:destination="@id/ScoresFragment" />
+            app:destination="@id/scoresFragment" />
+    </fragment>
+    <!-- Pantalla del Juego -->
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.afinal.fragment.GameFragment"
+        android:label="Juego"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_pauseFragment"
+            app:destination="@id/pauseFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
     </fragment>
 
+    <!-- Pantalla de Pausa -->
+    <fragment
+        android:id="@+id/pauseFragment"
+        android:name="com.example.afinal.fragment.PauseFragment"
+        android:label="Pausa"
+        tools:layout="@layout/fragment_pause">
+        <action
+            android:id="@+id/action_pauseFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_pauseFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+
+    <!-- Pantalla de Fin de Juego -->
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.afinal.fragment.GameOverFragment"
+        android:label="Fin del Juego"
+        tools:layout="@layout/fragment_game_over">
+        <action
+            android:id="@+id/action_gameOverFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_gameOverFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+
+    <!-- Pantalla de Puntuaciones -->
+    <fragment
+        android:id="@+id/scoresFragment"
+        android:name="com.example.afinal.fragment.ScoresFragment"
+        android:label="Puntuaciones"
+        tools:layout="@layout/fragment_scores">
+        <action
+            android:id="@+id/action_scoresFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 </navigation>
