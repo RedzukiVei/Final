@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.afinal.R
 import com.example.afinal.databinding.FragmentGameBinding
 
-class GameFragment : Fragment {
+class GameFragment : Fragment() {
 
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
@@ -61,5 +61,27 @@ class GameFragment : Fragment {
 
     //Actualizamos el estado del juego
 
+    private fun updateGame() {
+        //Simulamos que el jugador atrapa un objeto
+        score++
+        binding.tvScore.text = "Puntuación: $score"
+
+        //Simulamos que el jugador
+        if ((1..10).random() > 8) {
+            missedObjects++
+            binding.tvMissed.text = "Fallos: $missedObjects"
+        }
+
+        //Verificamos si el jugador ha perdido
+        if (missedObjects >= 5){
+            isGameRunning = false
+            findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
