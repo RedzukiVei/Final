@@ -19,12 +19,6 @@ class GameFragment : Fragment() {
     private val binding get() = _binding!!
     private val gameViewModel: GameViewModel by viewModels() // Vincular el ViewModel
 
-    //variables del juego
-
-    private var score = 0 // puntuación inicial
-    private var missedObjects = 0 // Objetos no recogidos
-    private var isGameRunning = true // Estado del juego
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
