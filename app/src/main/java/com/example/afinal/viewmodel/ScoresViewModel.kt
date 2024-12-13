@@ -13,17 +13,17 @@ class ScoresViewModel(application: Application) : AndroidViewModel(application) 
 
     private val scoreDao: ScoreDao = AppDatabase.getDatabase(application).scoreDao()
 
-    // LiveData para observar las puntuaciones
+    // Observa las puntuaciones en tiempo real
     val allScores: LiveData<List<Score>> = scoreDao.getAllScoresLive()
 
-    // Método para insertar una nueva puntuación
+    // Insertar nueva puntuación
     fun insertScore(score: Score) {
         viewModelScope.launch {
             scoreDao.insert(score)
         }
     }
 
-    // Método para eliminar todas las puntuaciones
+    // Eliminar todas las puntuaciones
     fun clearScores() {
         viewModelScope.launch {
             scoreDao.deleteAll()

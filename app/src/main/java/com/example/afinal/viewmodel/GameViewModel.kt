@@ -14,7 +14,7 @@ class GameViewModel : ViewModel() {
     private val _missedObjects = MutableLiveData(0)
     val missedObjects: LiveData<Int> get() = _missedObjects
 
-    // Estado del juego (si está corriendo o detenido)
+    // Estado del juego
     private val _isGameRunning = MutableLiveData(true)
     val isGameRunning: LiveData<Boolean> get() = _isGameRunning
 
@@ -39,5 +39,4 @@ class GameViewModel : ViewModel() {
         _missedObjects.value = 0
         _isGameRunning.value = true
     }
-
 }

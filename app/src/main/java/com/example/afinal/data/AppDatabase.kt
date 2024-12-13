@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 // Base de datos que incluye la tabla "scores"
 @Database(entities = [Score::class], version = 1, exportSchema = false)
 
-class AppDatabase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun scoreDao(): ScoreDao
 
